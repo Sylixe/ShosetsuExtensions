@@ -2,8 +2,8 @@
 
 local GENRES = {
 	"All",
+	"Fan-Fiction",
 	"Action",
-	"Adult",
 	"Adventure",
 	"Comedy",
 	"Contemporary Romance",
@@ -43,7 +43,7 @@ local GENRES = {
 	"Yaoi",
 	"Two-dimensional",
 	"Erciyuan",
-	"Fan-Fiction",
+	"Adult",
 	"Game",
 	"Military",
 	"Urban Life",
@@ -51,17 +51,24 @@ local GENRES = {
 	"Chinese",
 	"Korean",
 	"Japanese",
+	"Hentai",
 	"Isekai",
 	"Magic",
 	"Shoujo Ai",
 	"Urban",
-	"Virtual Reality"
+	"Virtual Reality",
+	"Faloo",
+	"Wuxia Xianxia",
+	"Official Circles",
+	"Science Fiction",
+	"Suspense Thriller",
+	"Travel Through Time"
 }
 
-return Require("ReadWN")("https://www.readwn.com", {
+return Require("ReadWN")("https://www.wuxiap.com", {
 	id = 1308639964,
 	name = "ReadWN",
-	shrinkURLNovel = "^.-readwn%.com",
+	shrinkURLNovel = "^.-wuxiap%.com",
 	hasCloudFlare = true,
 
 	genres = GENRES,
@@ -72,28 +79,28 @@ return Require("ReadWN")("https://www.readwn.com", {
 			increments = false,
 			selector = "#latest-updates .novel-list.grid.col .novel-item a",
 			url = function(data)
-				return "https://www.readwn.com"
+				return "https://www.wuxiap.com"
 			end
 		},
 		{
 			name = "Popular Daily Updates",
 			increments = true,
 			url = function(data)
-				return "https://www.readwn.com/list/all/all-lastdotime-" .. (data[PAGE] - 1) .. ".html"
+				return "https://www.wuxiap.com/list/all/all-lastdotime-" .. (data[PAGE] - 1) .. ".html"
 			end
 		},
 		{
 			name = "Most Popular",
 			increments = true,
 			url = function(data)
-				return "https://www.readwn.com/list/all/all-onclick-" .. (data[PAGE] - 1) .. ".html"
+				return "https://www.wuxiap.com/list/all/all-onclick-" .. (data[PAGE] - 1) .. ".html"
 			end
 		},
 		{
 			name = "New to Web Novels",
 			increments = true,
 			url = function(data)
-				return "https://www.readwn.com/list/all/all-newstime-" .. (data[PAGE] - 1) .. ".html"
+				return "https://www.wuxiap.com/list/all/all-newstime-" .. (data[PAGE] - 1) .. ".html"
 			end
 		}
 	},
