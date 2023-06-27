@@ -67,7 +67,7 @@ local GENRES = {
 
 return Require("ReadWN")("https://www.wuxiap.com", {
 	id = 1308639964,
-	name = "ReadWN",
+	name = "Wuxiap",
 	shrinkURLNovel = "^.-wuxiap%.com",
 	hasCloudFlare = true,
 
