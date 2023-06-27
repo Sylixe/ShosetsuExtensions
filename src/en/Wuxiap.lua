@@ -1,4 +1,4 @@
--- {"id":1308639964,"ver":"1.1.3","libVer":"1.0.0","author":"Jobobby04","dep":["ReadWN>=1.0.7"]}
+-- {"id":1308639999,"ver":"1.1.3","libVer":"1.0.0","author":"Jobobby04","dep":["Wuxiap>=1.0.7"]}
 
 local GENRES = {
 	"All",
@@ -66,7 +66,7 @@ local GENRES = {
 }
 
 return Require("Wuxiap")("https://www.wuxiap.com", {
-	id = 6969696969,
+	id = 1308639999,
 	name = "Wuxiap",
 	shrinkURLNovel = "^.-wuxiap%.com",
 	hasCloudFlare = true,
