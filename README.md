@@ -8,7 +8,4 @@ https://raw.githubusercontent.com/Sylixe/ShosetsuExtensions/master
 
 
 ### Repo Extensions
-- [ArchiveOfOurOwn](https://archiveofourown.org/)
-- [ReadWN](https://www.readwn.com/)
-- [LightNovelMeta](https://www.lightnovelmeta.com/)
-- [Hentai Foundry](https://www.hentai-foundry.com/)
+- [Wuxiap](https://www.wuxiap.com/)
