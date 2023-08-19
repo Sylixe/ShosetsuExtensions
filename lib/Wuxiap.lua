@@ -196,6 +196,14 @@ function defaults:search(filters)
     return {}
 end
 
+function defaults:getDummyNovel()
+    return Novel {
+        title = "TEST",
+        link = "https://www.wuxiap.com/novel/scoring-the-sacred-body-of-the-ancients-from-the-get-go.html",
+        imageURL = "https://raw.githubusercontent.com/shosetsuorg/extensions/dev/icons/MTLNovel.png"
+    }
+end
+
 --- @param filters table @of applied filter values [QUERY] is the search query, may be empty
 --- @param f fun(): Novel[]
 --- @return Novel[]
@@ -208,7 +216,7 @@ function defaults:getListings(filters, f)
     local statusFailed = status == nil or status == 0
     local sortByFailed = sortBy == nil or sortBy == 0
     if genreFailed and statusFailed and sortByFailed then
-        return f()
+        return {defaults:getDummyNovel()}
     else
         local part1 = "all"
         if genre ~= nil and genre ~= 0 then
