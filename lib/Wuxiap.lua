@@ -216,7 +216,7 @@ function defaults:getListings(filters, f)
     local statusFailed = status == nil or status == 0
     local sortByFailed = sortBy == nil or sortBy == 0
     if genreFailed and statusFailed and sortByFailed then
-        return defaults:getDummyNovel()
+        return {defaults:getDummyNovel()}
     else
         local part1 = "all"
         if genre ~= nil and genre ~= 0 then
