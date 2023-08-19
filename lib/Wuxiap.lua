@@ -199,7 +199,7 @@ end
 function defaults:getDummyNovel()
     return Novel {
         title = "TEST",
-        link = "https://www.wuxiap.com/novel/scoring-the-sacred-body-of-the-ancients-from-the-get-go.html",
+        link = self.shrinkURL("/novel/scoring-the-sacred-body-of-the-ancients-from-the-get-go.html"),
         imageURL = "https://raw.githubusercontent.com/shosetsuorg/extensions/dev/icons/MTLNovel.png"
     }
 end
