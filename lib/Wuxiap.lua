@@ -1,4 +1,4 @@
--- {"ver":"1.0.15","author":"Jobobby04"}
+-- {"ver":"1.0.16","author":"Jobobby04"}
 
 -- rename this if you ever figure out its real name
 
@@ -204,6 +204,8 @@ function defaults:getDummyNovel()
     }
 end
 
+defaults.Cache = {}
+
 --- @param filters table @of applied filter values [QUERY] is the search query, may be empty
 --- @param f fun(): Novel[]
 --- @return Novel[]
@@ -215,28 +217,41 @@ function defaults:getListings(filters, f)
     local genreFailed = genre == nil or genre == 0
     local statusFailed = status == nil or status == 0
     local sortByFailed = sortBy == nil or sortBy == 0
-    if genreFailed and statusFailed and sortByFailed then
-        return f()
-    else
-        local part1 = "all"
-        if genre ~= nil and genre ~= 0 then
-            part1 = self.genres[genre+1]:lower():gsub(" ", "-")
-        end
-        local part2 = "all"
-        if status ~= nil and status ~= 0 then
-            part2 = STATUS_VALUES[status+1]
-        end
 
-        local part3 = "newstime"
-        if sortBy ~= nil and sortBy ~= 0 then
-            if sortBy == 1 then
-                part3 = "onclick"
-            elseif sortBy == 2 then
-                part3 = "lastdotime"
-            end
-        end
-        return self.parseBrowse(GETDocument(self.baseURL .. "/list/" .. part1 .. "/" .. part2 .. "-" .. part3 .. "-" .. (filters[PAGE] - 1) .. ".html"))
+    if genreFailed then
+        genre = self.Cache.GENRE_SELECT
     end
+
+    if statusFailed then
+        genre = self.Cache.STATUS_SELECT
+    end
+
+    if sortByFailed then
+        genre = self.Cache.SORT_BY_SELECT
+    end
+
+    self.Cache.GENRE_SELECT = genre
+    self.Cache.STATUS_SELECT = status
+    self.Cache.SORT_BY_SELECT = sortBy
+
+    local part1 = "all"
+    if genre ~= nil and genre ~= 0 then
+        part1 = self.genres[genre+1]:lower():gsub(" ", "-")
+    end
+    local part2 = "all"
+    if status ~= nil and status ~= 0 then
+        part2 = STATUS_VALUES[status+1]
+    end
+
+    local part3 = "newstime"
+    if sortBy ~= nil and sortBy ~= 0 then
+        if sortBy == 1 then
+            part3 = "onclick"
+        elseif sortBy == 2 then
+            part3 = "lastdotime"
+        end
+    end
+    return self.parseBrowse(GETDocument(self.baseURL .. "/list/" .. part1 .. "/" .. part2 .. "-" .. part3 .. "-" .. (filters[PAGE] - 1) .. ".html"))
 end
 
 return function(baseURL, _self)
