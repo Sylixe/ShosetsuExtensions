@@ -1,4 +1,4 @@
--- {"ver":"1.0.17","author":"Jobobby04"}
+-- {"ver":"1.0.18","author":"Jobobby04"}
 
 -- rename this if you ever figure out its real name
 
@@ -213,6 +213,7 @@ function defaults:getListings(filters, f)
     local genre = filters[GENRE_SELECT]
     local status = filters[STATUS_SELECT]
     local sortBy = filters[SORT_BY_SELECT]
+    local page = filters[PAGE]
 
     local genreFailed = genre == nil or genre == 0
     local statusFailed = status == nil or status == 0
@@ -233,6 +234,12 @@ function defaults:getListings(filters, f)
     self.Cache.GENRE_SELECT = genre
     self.Cache.STATUS_SELECT = status
     self.Cache.SORT_BY_SELECT = sortBy
+    if not self.Cache.PAGE then
+        self.Cache.PAGE = page
+    else
+        page = page + 1
+        self.Cache.PAGE = page
+    end
 
     local part1 = "all"
     if genre ~= nil and genre ~= 0 then
@@ -251,7 +258,7 @@ function defaults:getListings(filters, f)
             part3 = "lastdotime"
         end
     end
-    return self.parseBrowse(GETDocument(self.baseURL .. "/list/" .. part1 .. "/" .. part2 .. "-" .. part3 .. "-" .. (filters[PAGE] - 1) .. ".html"))
+    return self.parseBrowse(GETDocument(self.baseURL .. "/list/" .. part1 .. "/" .. part2 .. "-" .. part3 .. "-" .. (page - 1) .. ".html"))
 end
 
 return function(baseURL, _self)
