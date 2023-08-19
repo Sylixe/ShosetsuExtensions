@@ -1,4 +1,4 @@
--- {"ver":"1.0.16","author":"Jobobby04"}
+-- {"ver":"1.0.17","author":"Jobobby04"}
 
 -- rename this if you ever figure out its real name
 
@@ -223,11 +223,11 @@ function defaults:getListings(filters, f)
     end
 
     if statusFailed then
-        genre = self.Cache.STATUS_SELECT
+        status = self.Cache.STATUS_SELECT
     end
 
     if sortByFailed then
-        genre = self.Cache.SORT_BY_SELECT
+        sortBy = self.Cache.SORT_BY_SELECT
     end
 
     self.Cache.GENRE_SELECT = genre

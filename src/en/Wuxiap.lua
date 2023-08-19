@@ -1,4 +1,4 @@
--- {"id":1308639999,"ver":"1.1.5","libVer":"1.0.0","author":"Jobobby04","dep":["Wuxiap>=1.0.7"]}
+-- {"id":1308639999,"ver":"1.1.6","libVer":"1.0.0","author":"Jobobby04","dep":["Wuxiap>=1.0.7"]}
 
 local GENRES = {
 	"All",
