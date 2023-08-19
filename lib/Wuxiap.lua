@@ -1,4 +1,4 @@
--- {"ver":"1.0.14","author":"Jobobby04_Sylixe"}
+-- {"ver":"1.0.15","author":"Jobobby04"}
 
 -- rename this if you ever figure out its real name
 
@@ -216,7 +216,7 @@ function defaults:getListings(filters, f)
     local statusFailed = status == nil or status == 0
     local sortByFailed = sortBy == nil or sortBy == 0
     if genreFailed and statusFailed and sortByFailed then
-        return error("SAD")
+        return f()
     else
         local part1 = "all"
         if genre ~= nil and genre ~= 0 then
