@@ -1,18 +1,18 @@
 {
   "libraries": [
     {
-      "name": "Wuxiap",
+      "name": "Wuxiabee",
       "ver": "1.0.21"
     }
   ],
   "scripts": [
     {
-      "name": "Wuxiap",
-      "fileName": "Wuxiap",
+      "name": "Wuxiabee",
+      "fileName": "Wuxiabee",
       "imageURL": "",
       "id": 1308639999,
       "lang": "en",
-      "ver": "1.1.11",
+      "ver": "2.0.0",
       "libVer": "1.0.0",
       "md5": ""
     }

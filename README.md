@@ -8,4 +8,4 @@ https://raw.githubusercontent.com/Sylixe/ShosetsuExtensions/master
 
 
 ### Repo Extensions
-- [Wuxiap](https://www.wuxiap.com/)
+- [Wuxiabee](https://www.wuxiabee.com/)
